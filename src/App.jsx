@@ -31,32 +31,70 @@ const AtendconSPA = () => {
     {
       title: "Gestão Contábil",
       icon: <Calculator className="w-8 h-8 text-blue-600" />,
-      desc: "Classificação, escrituração contábil e análise de demonstrações (Balanço, DRE). Entrega de SPED e E-Lalur."
+      desc: "Classificação, escrituração contábil e análise de demonstrações (Balanço, DRE). Entrega de SPED e E-Lalur.",
+      fullDetails: [
+        "Classificação e escrituração contábil",
+        "Elaboração e análise das demonstrações contábeis (Balancetes mensais, DRE, Balanço Patrimonial, Fluxo de Caixa)",
+        "SPED Contábil, fiscal e contribuições",
+        "Declarações acessórias (DIPJ, DCTF, FCONT, E-Lalur, entre outras)",
+        "PER/DCOMP – Processos de Restituição e Compensação de Tributos Federais"
+      ]
     },
     {
       title: "Gestão Fiscal",
       icon: <TrendingUp className="w-8 h-8 text-blue-600" />,
-      desc: "Apuração de tributos (ICMS, IPI, PIS, Cofins, ISSQN) e transmissão de obrigações acessórias (DCTF, Dapi, VAF)."
+      desc: "Apuração de tributos (ICMS, IPI, PIS, Cofins, ISSQN) e transmissão de obrigações acessórias (DCTF, Dapi, VAF).",
+      fullDetails: [
+        "Apuração de tributos: ISSQN, ICMS, IPI, PIS, Cofins",
+        "Declaração de Débitos e Créditos Tributários Federais (DCTF)",
+        "Declaração de Apuração e Informações do ICMS (Dapi)",
+        "Valor Adicionado Fiscal / Declaração Anual de Movimento Econômico e Fiscal (VAF/Damef)",
+        "Declaração de Substituição Tributária e Declaração Eletrônica de Serviços (DES)"
+      ]
     },
     {
       title: "Departamento Pessoal",
       icon: <Users className="w-8 h-8 text-blue-600" />,
-      desc: "Elaboração de folha de pagamento, cálculo de rescisões, controle de férias e envio de obrigações mensais/anuais."
+      desc: "Elaboração de folha de pagamento, cálculo de rescisões, controle de férias e envio de obrigações mensais/anuais.",
+      fullDetails: [
+        "Elaboração de folha de pagamento, 13º salário, pró-labore e guias (INSS, FGTS, IRRF)",
+        "Registro informatizado de empregados",
+        "Cálculo de rescisões e reajustes salariais (acordos ou dissídios coletivos)",
+        "Mapa de Controle Anual de Férias",
+        "Obrigações acessórias (Caged, Rais, Dirf) e informes de rendimentos"
+      ]
     },
     {
       title: "Consultoria Tributária e Societária",
       icon: <Briefcase className="w-8 h-8 text-blue-600" />,
-      desc: "Assessoria técnica, regimes especiais de tributação e treinamentos com atualizações da legislação."
+      desc: "Assessoria técnica, regimes especiais de tributação e treinamentos com atualizações da legislação.",
+      fullDetails: [
+        "Assessoria técnica específica nas áreas fiscal, trabalhista e previdenciária",
+        "Elaboração e acompanhamento de Regimes Especiais de Tributação",
+        "Treinamentos técnicos periódicos com atualizações da legislação",
+        "Desenvolvimento de informativos e circulares para divulgação"
+      ]
     },
     {
       title: "Auditoria Eletrônica (SPED)",
       icon: <Search className="w-8 h-8 text-blue-600" />,
-      desc: "Validação profunda e certificação de arquivos fiscais/contábeis para reduzir riscos tributários."
+      desc: "Validação profunda e certificação de arquivos fiscais/contábeis para reduzir riscos tributários.",
+      fullDetails: [
+        "Valida, audita e certifica arquivos fiscais a serem apresentados ao fisco",
+        "Análises estruturais e complexos cruzamentos fiscais (100% dos dados)",
+        "Redução de riscos tributários e aproveitamento de benefícios fiscais",
+        "Apontamentos de erros, advertências e oportunidades"
+      ]
     },
     {
-      title: "Legalização de Empresas",
+      title: "Legalização e Pessoa Física",
       icon: <ShieldCheck className="w-8 h-8 text-blue-600" />,
-      desc: "Constituição, alterações contratuais e regularização de registros. Inclui também declarações de IRPF."
+      desc: "Constituição, alterações contratuais e regularização de registros. Inclui também declarações de IRPF.",
+      fullDetails: [
+        "Constituição de empresas e alterações contratuais",
+        "Confecção de atos societários e regularização de registros necessários",
+        "Pessoa Física (I.R.P.F.): Confecção e acompanhamento da Declaração de Imposto de Renda"
+      ]
     }
   ];
 
@@ -84,6 +122,7 @@ const AtendconSPA = () => {
             <a href="#metodo" className="hover:text-blue-600 transition-colors">Método</a>
             <a href="#sobre" className="hover:text-blue-600 transition-colors">Quem Somos</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
+            <a href="#contato" className="hover:text-blue-600 transition-colors">Contato</a>
           </nav>
 
           <div className="hidden md:flex items-center gap-6 text-sm">
@@ -204,7 +243,17 @@ const AtendconSPA = () => {
                 <button onClick={() => setSelectedService(null)} className="absolute top-6 right-6 text-slate-400 hover:text-slate-900"><X /></button>
                 <div className="mb-6">{selectedService.icon}</div>
                 <h3 className="text-2xl font-bold mb-4">{selectedService.title}</h3>
-                <p className="text-slate-600 mb-8">{selectedService.desc}</p>
+                <p className="text-slate-600 mb-6">{selectedService.desc}</p>
+                {selectedService.fullDetails && (
+                  <ul className="mb-8 space-y-3 text-sm text-slate-700">
+                    {selectedService.fullDetails.map((detail, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="mt-1.5 w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0" />
+                        <span className="leading-relaxed">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <a href={WHATSAPP_LINK} className="block w-full bg-blue-600 text-white text-center py-3 rounded-full font-semibold hover:bg-blue-700">
                   Solicitar este serviço
                 </a>
@@ -251,14 +300,17 @@ const AtendconSPA = () => {
             </div>
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Atenção que sua empresa precisa</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A atenção que sua empresa precisa</h2>
             <p className="text-slate-600 mb-6 leading-relaxed">
-              A ATENDCON CONTABILIDADE fornece serviços personalizados em Belo Horizonte. Nossa equipe altamente treinada busca sempre novos conhecimentos para lidar com todas as suas necessidades, seja qual for o grau de complexidade.
+              A ATENDCON CONTABILIDADE tem fornecido serviços personalizados de contabilidade e fiscais em Belo Horizonte. Com nossa equipe altamente treinada, sempre em busca de novos conhecimentos, estamos prontos para lidar com todas as suas necessidades de contabilidade, seja qual for o grau de complexidade. Caso precise de ajuda com as suas finanças pessoais ou da sua empresa, estamos sempre prontos para fazer seu planejamento fiscal ou prestar assessoria.
+            </p>
+            <p className="text-slate-600 mb-6 leading-relaxed">
+              Construímos uma excelente reputação cuidando das necessidades fiscais e contábeis de uma grande variedade de empresas e pessoas. Temos toda a informação disponível e queremos trabalhar com você.
             </p>
             <div className="space-y-4">
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                <h4 className="font-bold text-slate-900 mb-2">Nossa Missão</h4>
-                <p className="text-slate-600 text-sm">Entregar segurança jurídica e financeira através de uma contabilidade consultiva, permitindo que você foque no que faz de melhor.</p>
+                <h4 className="font-bold text-slate-900 mb-2">Serviço Personalizado, Resultados Mensuráveis</h4>
+                <p className="text-slate-600 text-sm">Entregar segurança jurídica e financeira através de uma contabilidade consultiva, permitindo que você foque no que faz de melhor: o seu negócio.</p>
               </div>
             </div>
           </div>
@@ -301,12 +353,62 @@ const AtendconSPA = () => {
         </div>
       </section>
 
-      {/* 8. CTA FINAL */}
+      {/* 8. CONTATO E MAPA */}
+      <section id="contato" className="py-24 bg-white relative">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Fale Conosco</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              Contate-nos para saber como nossos serviços personalizados podem ajudar você a economizar tempo, dinheiro e frustração na gestão das suas finanças.
+            </p>
+
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">Nome *</label>
+                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">Email *</label>
+                  <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" required />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Assunto</label>
+                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Mensagem</label>
+                <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"></textarea>
+              </div>
+              <button type="button" onClick={() => window.open(WHATSAPP_LINK)} className="w-full bg-slate-900 text-white font-bold rounded-full py-4 hover:bg-blue-600 transition-colors">
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+
+          <div className="h-full w-full min-h-[400px] rounded-3xl overflow-hidden shadow-xl border border-slate-100 relative">
+            <iframe 
+              src="https://maps.google.com/maps?q=Avenida%20Cristiano%20Machado%20640%20sala%201507%20Sagrada%20Familia%20Belo%20Horizonte&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 9. CTA FINAL */}
       <section className="py-24 bg-blue-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80')] opacity-10 object-cover bg-center mix-blend-overlay"></div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
-          <p className="text-xl text-blue-100 mb-10">Economize tempo, dinheiro e frustração na gestão das suas finanças.</p>
+          <p className="text-xl text-blue-100 mb-10">Agende uma conversa e descubra como podemos alavancar o seu negócio.</p>
           <a href={WHATSAPP_LINK} className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
             Iniciar Diagnóstico Gratuito
           </a>
