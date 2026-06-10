@@ -4,6 +4,7 @@ import {
   Menu, X, TrendingUp, Calculator, Users, Briefcase, 
   Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight 
 } from 'lucide-react';
+import logo from './assets/logo.png';
 
 const AtendconSPA = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -63,11 +64,8 @@ const AtendconSPA = () => {
       {/* 1. NAVBAR */}
       <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/50 transition-all">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
-            </div>
-            <span className="font-bold text-xl tracking-tight text-slate-900">ATENDCON</span>
+          <div className="flex items-center">
+            <img src={logo} alt="Atendcon Logo" className="h-10 md:h-12 w-auto object-contain" />
           </div>
           
           <nav className="hidden md:flex gap-8 items-center font-medium text-sm">
@@ -305,9 +303,8 @@ const AtendconSPA = () => {
       <footer className="bg-[#020617] text-slate-400 py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center"><span className="text-white font-bold">A</span></div>
-              <span className="font-bold text-xl text-white">ATENDCON</span>
+            <div className="flex items-center mb-6">
+              <img src={logo} alt="Atendcon Logo" className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <p className="text-sm">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
           </div>
