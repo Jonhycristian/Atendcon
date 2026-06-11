@@ -429,18 +429,12 @@ const AtendconSPA = () => {
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
             Tire suas dúvidas
           </div>
-          <h2 className="text-4xl font-black text-slate-900 mb-6 leading-tight">
+          <h2 className="text-4xl font-black text-slate-900 mb-2 leading-tight">
             Dúvidas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Frequentes</span>
           </h2>
-          <p className="text-lg text-slate-600 mb-8">
-            Não encontrou o que procurava? Fale diretamente com nossa equipe.
-          </p>
-          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Estou no site e tenho algumas dúvidas específicas.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-600 transition-colors shadow-lg">
-            <FaWhatsapp size={18}/> Chamar no WhatsApp
-          </a>
         </div>
 
-        <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-4" onMouseEnter={() => setIsFaqHovered(true)} onMouseLeave={() => setIsFaqHovered(false)}>
+        <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-4 min-h-[400px] md:min-h-[320px]" onMouseEnter={() => setIsFaqHovered(true)} onMouseLeave={() => setIsFaqHovered(false)}>
           {faqs.map((faq, i) => (
             <div 
               key={i} 
@@ -467,6 +461,15 @@ const AtendconSPA = () => {
               </AnimatePresence>
             </div>
           ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mt-10">
+          <p className="text-lg text-slate-600 mb-6">
+            Não encontrou o que procurava? Fale diretamente com nossa equipe.
+          </p>
+          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Estou no site e tenho algumas dúvidas específicas.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-600 transition-colors shadow-lg">
+            <FaWhatsapp size={18}/> Chamar no WhatsApp
+          </a>
         </div>
       </section>
 
