@@ -434,7 +434,7 @@ const AtendconSPA = () => {
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-4 min-h-[400px] md:min-h-[320px]" onMouseEnter={() => setIsFaqHovered(true)} onMouseLeave={() => setIsFaqHovered(false)}>
+        <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-4 h-[450px] md:h-[320px]" onMouseEnter={() => setIsFaqHovered(true)} onMouseLeave={() => setIsFaqHovered(false)}>
           {faqs.map((faq, i) => (
             <div 
               key={i} 
