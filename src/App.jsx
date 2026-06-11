@@ -414,32 +414,57 @@ const AtendconSPA = () => {
       </section>
 
       {/* 6. FAQ */}
-      <section id="faq" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-1">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Dúvidas Frequentes</h2>
-            <p className="text-slate-600 mb-8">Não encontrou o que procurava? Fale diretamente com nossa equipe.</p>
-            <a href={`${WHATSAPP_LINK}&type=phone_number&app_absent=0`} className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-slate-800 transition">
-              Chamar no WhatsApp <ArrowRight size={18}/>
-            </a>
+      <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-full md:w-1/2 h-full bg-blue-600/5 clip-path-slant z-0"></div>
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+          <div className="lg:col-span-4 flex flex-col justify-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-bold text-xs mb-6 w-fit">
+              <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+              Tire suas dúvidas
+            </div>
+            <h2 className="text-4xl font-black text-slate-900 mb-6 leading-tight">
+              Perguntas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Frequentes</span>
+            </h2>
+            <p className="text-lg text-slate-600 mb-8">
+              Ainda tem dúvidas sobre como a Atendcon pode revolucionar a gestão da sua empresa?
+            </p>
+            <div className="bg-white p-6 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden group">
+              <div className="absolute -right-6 -top-6 w-24 h-24 bg-blue-50 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                  <Users size={24} />
+                </div>
+                <h4 className="font-bold text-slate-900 mb-2 text-xl">Precisa de ajuda humana?</h4>
+                <p className="text-sm text-slate-500 mb-6">Nossa equipe de especialistas está pronta para analisar o seu caso específico.</p>
+                <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Estou no site e tenho algumas dúvidas específicas.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white px-6 py-3.5 rounded-xl font-bold hover:bg-blue-600 transition-colors shadow-lg">
+                  <FaWhatsapp size={18}/> Chamar no WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
-          <div className="lg:col-span-2 space-y-4">
+          
+          <div className="lg:col-span-8 space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-slate-200 rounded-2xl overflow-hidden">
+              <div key={i} className={`bg-white border ${activeFaq === i ? 'border-blue-500 shadow-lg shadow-blue-100' : 'border-slate-200 hover:border-blue-300'} rounded-2xl overflow-hidden transition-all duration-300`}>
                 <button 
                   onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                  className="w-full flex justify-between items-center p-6 text-left bg-slate-50 hover:bg-slate-100 transition"
+                  className="w-full flex justify-between items-center p-6 text-left"
                 >
-                  <span className="font-bold text-slate-900">{faq.q}</span>
-                  <ChevronDown className={`transform transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} />
+                  <span className={`font-bold text-lg ${activeFaq === i ? 'text-blue-700' : 'text-slate-800'}`}>{faq.q}</span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${activeFaq === i ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                    <ChevronDown className={`transform transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} size={18} />
+                  </div>
                 </button>
                 <AnimatePresence>
                   {activeFaq === i && (
                     <motion.div 
                       initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                      className="px-6 pb-6 bg-slate-50 text-slate-600"
+                      className="px-6 pb-6 text-slate-600 leading-relaxed"
                     >
-                      {faq.a}
+                      <div className="pt-2 border-t border-slate-100">
+                        {faq.a}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
