@@ -485,9 +485,24 @@ const AtendconSPA = () => {
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Comercial@atendcon.com.br</p>
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Operacional@atendcon.com.br</p>
             </div>
-            <div className="mt-8">
-              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-10 h-10 bg-slate-800 text-slate-300 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-lg hover:-translate-y-1">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-10 h-10 bg-slate-800 text-slate-300 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-lg hover:-translate-y-1 shrink-0">
                 <FaInstagram size={20} />
+              </a>
+              <div className="h-8 w-px bg-slate-800 hidden sm:block"></div>
+              <a href="#" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 px-3 py-1.5 rounded-xl transition-all text-white shrink-0">
+                <FaGooglePlay size={16} className="text-blue-400" />
+                <div className="text-left">
+                  <div className="text-[9px] leading-none text-slate-400">Disponível no</div>
+                  <div className="text-xs font-bold leading-tight">Google Play</div>
+                </div>
+              </a>
+              <a href="#" className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 px-3 py-1.5 rounded-xl transition-all text-white shrink-0">
+                <FaApple size={20} className="text-slate-200" />
+                <div className="text-left">
+                  <div className="text-[9px] leading-none text-slate-400">Baixar na</div>
+                  <div className="text-xs font-bold leading-tight">App Store</div>
+                </div>
               </a>
             </div>
           </div>
@@ -501,28 +516,9 @@ const AtendconSPA = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col items-center md:items-start text-sm">
-            <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
-            <p className="mt-1 text-slate-500">CNPJ: 12.345.678/0001-90</p>
-          </div>
-          
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="#" className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl transition-all text-white">
-              <FaGooglePlay size={20} className="text-blue-400" />
-              <div className="text-left">
-                <div className="text-[10px] leading-none text-slate-400">Disponível no</div>
-                <div className="text-sm font-bold leading-tight">Google Play</div>
-              </div>
-            </a>
-            <a href="#" className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl transition-all text-white">
-              <FaApple size={24} className="text-slate-200" />
-              <div className="text-left">
-                <div className="text-[10px] leading-none text-slate-400">Baixar na</div>
-                <div className="text-sm font-bold leading-tight">App Store</div>
-              </div>
-            </a>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+          <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
+          <p className="mt-2 md:mt-0 text-slate-500">CNPJ: 12.345.678/0001-90</p>
         </div>
       </footer>
 
