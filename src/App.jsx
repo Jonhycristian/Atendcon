@@ -134,6 +134,7 @@ const AtendconSPA = () => {
             <a href="#metodo" className="hover:text-blue-600 transition-colors">Método</a>
             <a href="#sobre" className="hover:text-blue-600 transition-colors">Quem Somos</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
+            <a href="#app" className="hover:text-blue-600 transition-colors">App</a>
             <a href="#contato" className="hover:text-blue-600 transition-colors">Contato</a>
           </nav>
 
@@ -162,6 +163,7 @@ const AtendconSPA = () => {
               <a href="#metodo" onClick={() => setIsMobileMenuOpen(false)}>Método</a>
               <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)}>Quem Somos</a>
               <a href="#faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+              <a href="#app" onClick={() => setIsMobileMenuOpen(false)}>Nosso App</a>
               <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 font-bold mt-2">Área do Cliente</a>
               <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} className="bg-blue-600 text-white text-center py-3 rounded-full mt-2">Falar com Especialista</a>
             </motion.div>
@@ -401,6 +403,114 @@ const AtendconSPA = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 7. NOSSO APP SECTION */}
+      <section id="app" className="py-24 bg-blue-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-400/20 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 -left-24 w-96 h-96 bg-cyan-400/20 rounded-full blur-[100px]"></div>
+
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="order-2 lg:order-1 relative"
+          >
+            {/* Phone Mockup Frame */}
+            <div className="relative mx-auto lg:mx-0 w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-900 shadow-2xl flex items-center justify-center overflow-hidden">
+              {/* Screen Content - A simple gradient representation since we don't have a real app screenshot */}
+              <div className="w-full h-full bg-slate-100 flex flex-col relative">
+                {/* Status Bar */}
+                <div className="absolute top-0 w-full h-7 bg-transparent z-20 flex justify-between px-6 py-2">
+                  <div className="w-4 h-4 bg-slate-900 rounded-full absolute top-1.5 left-1/2 -translate-x-1/2"></div>
+                </div>
+                {/* App Content Fake */}
+                <div className="bg-blue-600 h-1/3 w-full p-6 flex flex-col justify-end text-white pb-8">
+                  <div className="w-12 h-12 bg-white rounded-xl mb-3 p-2 flex items-center justify-center">
+                    <img src={logo1} alt="Icon" className="w-full h-full object-contain" />
+                  </div>
+                  <h3 className="font-bold text-lg">Olá, Cliente!</h3>
+                  <p className="text-sm text-blue-100">Seu resumo financeiro</p>
+                </div>
+                <div className="flex-1 p-6 space-y-4 bg-slate-50">
+                  <div className="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 w-full p-4 flex flex-col gap-2">
+                    <div className="w-1/2 h-3 bg-slate-200 rounded-full"></div>
+                    <div className="w-3/4 h-6 bg-slate-300 rounded-full mt-2"></div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 p-4 flex flex-col gap-2 justify-center items-center">
+                      <div className="w-10 h-10 bg-blue-100 rounded-full mb-1"></div>
+                      <div className="w-1/2 h-2 bg-slate-200 rounded-full"></div>
+                    </div>
+                    <div className="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 p-4 flex flex-col gap-2 justify-center items-center">
+                      <div className="w-10 h-10 bg-blue-100 rounded-full mb-1"></div>
+                      <div className="w-1/2 h-2 bg-slate-200 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Floating Badges */}
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}
+              className="absolute top-1/4 -right-8 md:-right-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-100"
+            >
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600"><ShieldCheck size={20} /></div>
+              <div>
+                <div className="text-xs text-slate-500 font-medium">Conformidade</div>
+                <div className="font-bold text-slate-900 text-sm">100% Segura</div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="order-1 lg:order-2"
+          >
+            <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-bold text-sm mb-6">
+              O Seu Escritório Digital
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+              A contabilidade da sua empresa na <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">palma da mão.</span>
+            </h2>
+            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              Com o aplicativo oficial da ATENDCON, você acompanha suas finanças, acessa guias de impostos, envia documentos e fala com seu contador em tempo real. Tudo isso direto do seu celular, de forma rápida, segura e sem burocracia.
+            </p>
+
+            <ul className="space-y-4 mb-10">
+              {['Envio e recebimento de documentos fiscais', 'Acesso rápido a guias e relatórios', 'Atendimento direto com seu contador', 'Notificações importantes de vencimentos'].map((feature, i) => (
+                <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                    <ShieldCheck size={14} />
+                  </div>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <a href="#" className="flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 border-0 px-5 py-3 rounded-2xl transition-all text-white shadow-lg hover:shadow-blue-500/50">
+                <FaGooglePlay size={28} className="text-white" />
+                <div className="text-left">
+                  <div className="text-xs leading-none text-emerald-100 mb-0.5">Disponível no</div>
+                  <div className="text-lg font-bold leading-tight">Google Play</div>
+                </div>
+              </a>
+              <a href="#" className="flex items-center gap-3 bg-gradient-to-r from-slate-800 to-slate-900 hover:scale-105 border-0 px-5 py-3 rounded-2xl transition-all text-white shadow-lg hover:shadow-slate-500/50">
+                <FaApple size={32} className="text-white" />
+                <div className="text-left">
+                  <div className="text-xs leading-none text-slate-300 mb-0.5">Baixar na</div>
+                  <div className="text-lg font-bold leading-tight">App Store</div>
+                </div>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
