@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useMotionValue, useTransform, animate } from 'framer-motion';
 import { 
-  Menu, X, TrendingUp, Calculator, Users, Briefcase, 
-  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight
+  Menu, X, TrendingUp, TrendingDown, Calculator, Users, Briefcase, 
+  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, DollarSign, Activity
 } from 'lucide-react';
 import { FaWhatsapp, FaInstagram, FaGooglePlay, FaApple } from 'react-icons/fa';
 import logo from './assets/logo.png';
@@ -460,54 +460,98 @@ const AtendconSPA = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="order-2 lg:order-1 relative"
+            className="order-2 lg:order-1 flex justify-center lg:justify-start"
           >
-            {/* Phone Mockup Frame */}
-            <div className="relative mx-auto lg:mx-0 w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-900 shadow-2xl flex items-center justify-center overflow-hidden">
-              {/* Screen Content - A simple gradient representation since we don't have a real app screenshot */}
-              <div className="w-full h-full bg-slate-100 flex flex-col relative">
-                {/* Status Bar */}
-                <div className="absolute top-0 w-full h-7 bg-transparent z-20 flex justify-between px-6 py-2">
-                  <div className="w-4 h-4 bg-slate-900 rounded-full absolute top-1.5 left-1/2 -translate-x-1/2"></div>
-                </div>
-                {/* App Content Fake */}
-                <div className="bg-blue-600 h-1/3 w-full p-6 flex flex-col justify-end text-white pb-8">
-                  <div className="w-12 h-12 bg-white rounded-xl mb-3 p-2 flex items-center justify-center">
-                    <img src={logo1} alt="Icon" className="w-full h-full object-contain" />
+            <div className="relative">
+              {/* Phone Mockup Frame */}
+              <div className="relative w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-900 shadow-2xl flex items-center justify-center overflow-hidden">
+                {/* Screen Content - Financial Dashboard Mockup */}
+                <div className="w-full h-full bg-slate-50 flex flex-col relative text-slate-900 overflow-hidden">
+                  {/* Status Bar */}
+                  <div className="absolute top-0 w-full h-7 bg-transparent z-20 flex justify-between px-6 py-2">
+                    <div className="w-4 h-4 bg-slate-900 rounded-full absolute top-1.5 left-1/2 -translate-x-1/2"></div>
                   </div>
-                  <h3 className="font-bold text-lg">Olá, Cliente!</h3>
-                  <p className="text-sm text-blue-100">Seu resumo financeiro</p>
-                </div>
-                <div className="flex-1 p-6 space-y-4 bg-slate-50">
-                  <div className="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 w-full p-4 flex flex-col gap-2">
-                    <div className="w-1/2 h-3 bg-slate-200 rounded-full"></div>
-                    <div className="w-3/4 h-6 bg-slate-300 rounded-full mt-2"></div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 p-4 flex flex-col gap-2 justify-center items-center">
-                      <div className="w-10 h-10 bg-blue-100 rounded-full mb-1"></div>
-                      <div className="w-1/2 h-2 bg-slate-200 rounded-full"></div>
+                  {/* Header Profile */}
+                  <div className="bg-blue-600 pt-10 pb-16 px-5 flex flex-col text-white rounded-b-[2rem] shadow-sm">
+                    <div className="flex justify-between items-center mb-6">
+                      <div className="w-10 h-10 bg-white rounded-xl p-1.5 shadow-sm">
+                        <img src={logo1} alt="Icon" className="w-full h-full object-contain" />
+                      </div>
+                      <div className="bg-white/20 p-2 rounded-full backdrop-blur-sm"><Activity size={16} /></div>
                     </div>
-                    <div className="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 p-4 flex flex-col gap-2 justify-center items-center">
-                      <div className="w-10 h-10 bg-blue-100 rounded-full mb-1"></div>
-                      <div className="w-1/2 h-2 bg-slate-200 rounded-full"></div>
+                    <p className="text-xs text-blue-100 mb-1">Saldo em Caixa</p>
+                    <h3 className="font-black text-2xl">R$ 142.500,00</h3>
+                  </div>
+                  
+                  {/* Dashboard Widgets */}
+                  <div className="flex-1 px-5 -mt-8 space-y-4 overflow-y-auto custom-scrollbar pb-6">
+                    {/* Receitas e Despesas */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
+                        <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2">
+                          <TrendingUp size={14} />
+                        </div>
+                        <p className="text-[10px] text-slate-400 font-medium mb-0.5">Receitas</p>
+                        <p className="text-sm font-bold text-slate-800">R$ 85.2k</p>
+                      </div>
+                      <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
+                        <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mb-2">
+                          <TrendingDown size={14} />
+                        </div>
+                        <p className="text-[10px] text-slate-400 font-medium mb-0.5">Despesas</p>
+                        <p className="text-sm font-bold text-slate-800">R$ 32.4k</p>
+                      </div>
+                    </div>
+
+                    {/* Impostos a Pagar */}
+                    <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
+                      <div className="flex justify-between items-center mb-3">
+                        <h4 className="text-xs font-bold text-slate-800">Próximos Vencimentos</h4>
+                        <span className="text-[10px] text-blue-600 font-bold">Ver todos</span>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-orange-50 rounded-lg flex items-center justify-center text-orange-500">
+                              <DollarSign size={14} />
+                            </div>
+                            <div>
+                              <p className="text-xs font-bold text-slate-800">DAS - Simples</p>
+                              <p className="text-[9px] text-slate-400">Vence em 2 dias</p>
+                            </div>
+                          </div>
+                          <span className="text-xs font-bold text-slate-800">R$ 1.250,00</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-500">
+                              <Briefcase size={14} />
+                            </div>
+                            <div>
+                              <p className="text-xs font-bold text-slate-800">GPS / INSS</p>
+                              <p className="text-[9px] text-slate-400">Vence hoje</p>
+                            </div>
+                          </div>
+                          <span className="text-xs font-bold text-slate-800">R$ 840,00</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              
+              {/* Floating Badges */}
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}
+                className="absolute top-1/2 -translate-y-1/2 -right-8 md:-right-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-100 z-30"
+              >
+                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600"><ShieldCheck size={20} /></div>
+                <div>
+                  <div className="text-xs text-slate-500 font-medium">Conformidade</div>
+                  <div className="font-bold text-slate-900 text-sm">100% Segura</div>
+                </div>
+              </motion.div>
             </div>
-            
-            {/* Floating Badges */}
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}
-              className="absolute top-1/4 -right-8 md:-right-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-100"
-            >
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600"><ShieldCheck size={20} /></div>
-              <div>
-                <div className="text-xs text-slate-500 font-medium">Conformidade</div>
-                <div className="font-bold text-slate-900 text-sm">100% Segura</div>
-              </div>
-            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -537,19 +581,19 @@ const AtendconSPA = () => {
               ))}
             </ul>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="#" className="flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 border-0 px-5 py-3 rounded-2xl transition-all text-white shadow-lg hover:shadow-blue-500/50">
-                <FaGooglePlay size={28} className="text-white" />
+            <div className="flex flex-wrap gap-4 mt-6">
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-slate-900 hover:scale-105 border border-slate-800 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-fit">
+                <FaGooglePlay size={24} className="text-white" />
                 <div className="text-left">
-                  <div className="text-xs leading-none text-emerald-100 mb-0.5">Disponível no</div>
-                  <div className="text-lg font-bold leading-tight">Google Play</div>
+                  <div className="text-[9px] leading-none text-slate-300 mb-0.5">DISPONÍVEL NO</div>
+                  <div className="text-sm font-semibold leading-tight">Google Play</div>
                 </div>
               </a>
-              <a href="#" className="flex items-center gap-3 bg-gradient-to-r from-slate-800 to-slate-900 hover:scale-105 border-0 px-5 py-3 rounded-2xl transition-all text-white shadow-lg hover:shadow-slate-500/50">
-                <FaApple size={32} className="text-white" />
+              <a href="#" className="flex items-center gap-3 bg-black hover:bg-slate-900 hover:scale-105 border border-slate-800 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-fit">
+                <FaApple size={28} className="text-white" />
                 <div className="text-left">
-                  <div className="text-xs leading-none text-slate-300 mb-0.5">Baixar na</div>
-                  <div className="text-lg font-bold leading-tight">App Store</div>
+                  <div className="text-[9px] leading-none text-slate-300 mb-0.5">Baixar na</div>
+                  <div className="text-sm font-semibold leading-tight">App Store</div>
                 </div>
               </a>
             </div>
@@ -562,46 +606,90 @@ const AtendconSPA = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Fale Conosco</h2>
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              Contate-nos para saber como nossos serviços personalizados podem ajudar você a economizar tempo, dinheiro e frustração na gestão das suas finanças.
+            <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-bold text-sm mb-4">
+              Atendimento Rápido
+            </div>
+            <h2 className="text-4xl font-black text-slate-900 mb-4">Fale Conosco</h2>
+            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              Explique brevemente a sua necessidade. Nossa equipe entrará em contato em instantes via WhatsApp para oferecer a melhor solução para o seu negócio.
             </p>
 
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form className="space-y-5" onSubmit={(e) => {
+              e.preventDefault();
+              const nome = e.target.nome.value;
+              const empresa = e.target.empresa.value;
+              const servico = e.target.servico.value;
+              const mensagem = e.target.mensagem.value;
+              const texto = `Olá! Meu nome é *${nome}*${empresa ? ` da empresa *${empresa}*` : ''}.\n\nGostaria de falar sobre: *${servico}*.\n\nDetalhes:\n${mensagem}`;
+              window.open(`${WHATSAPP_LINK}&text=${encodeURIComponent(texto)}&type=phone_number&app_absent=0`);
+            }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Nome *</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" required />
+                  <label className="block text-sm font-bold text-slate-700 mb-1.5">Seu Nome *</label>
+                  <input name="nome" type="text" placeholder="Como podemos te chamar?" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" required />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Email *</label>
-                  <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" required />
+                  <label className="block text-sm font-bold text-slate-700 mb-1.5">Empresa</label>
+                  <input name="empresa" type="text" placeholder="Nome do seu negócio" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Assunto</label>
-                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" />
+                <label className="block text-sm font-bold text-slate-700 mb-1.5">Qual sua necessidade principal? *</label>
+                <select name="servico" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all text-slate-700" required>
+                  <option value="" disabled selected>Selecione uma opção...</option>
+                  <option value="Abertura de Empresa">Quero abrir uma empresa</option>
+                  <option value="Troca de Contador">Quero trocar de contador</option>
+                  <option value="Consultoria Tributária">Preciso reduzir meus impostos</option>
+                  <option value="Regularização">Preciso regularizar pendências</option>
+                  <option value="Outros">Outros assuntos</option>
+                </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Mensagem</label>
-                <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"></textarea>
+                <label className="block text-sm font-bold text-slate-700 mb-1.5">Detalhes da sua solicitação</label>
+                <textarea name="mensagem" rows={4} placeholder="Conte um pouco mais sobre o que você precisa..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all custom-scrollbar"></textarea>
               </div>
-              <button type="button" onClick={() => window.open(`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de entrar em contato com a Atendcon.") + "&type=phone_number&app_absent=0"}`)} className="w-full bg-slate-900 text-white font-bold rounded-full py-4 hover:bg-blue-600 transition-colors">
-                Enviar Mensagem
+              <button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl py-4 transition-colors flex items-center justify-center gap-2 text-lg shadow-lg shadow-green-500/30">
+                <FaWhatsapp size={24} />
+                Enviar pelo WhatsApp
               </button>
             </form>
           </div>
 
-          <div className="h-full w-full min-h-[400px] rounded-3xl overflow-hidden shadow-xl border border-slate-100 relative">
+          <div className="relative h-full w-full min-h-[500px] lg:min-h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white isolate bg-slate-100 group">
+            {/* Map Frame */}
             <iframe 
               src="https://maps.google.com/maps?q=Avenida%20Cristiano%20Machado%20640%20sala%201507%20Sagrada%20Familia%20Belo%20Horizonte&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
-              style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
+              className="absolute inset-0 grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
+              style={{ border: 0 }} 
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade">
             </iframe>
+            
+            {/* Floating Glass Contact Card over the map */}
+            <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-8 md:bottom-8 md:w-80 bg-white/80 backdrop-blur-xl p-6 rounded-3xl border border-white/50 shadow-2xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-lg">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">Sede Atendcon</h4>
+                  <p className="text-xs text-blue-600 font-bold">Belo Horizonte - MG</p>
+                </div>
+              </div>
+              <div className="space-y-3 text-sm text-slate-600">
+                <p className="flex gap-3 leading-relaxed">
+                  <span className="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                  Avenida Cristiano Machado 640, Sala 1507<br/>Sagrada Familia - CEP 31030-514
+                </p>
+                <div className="h-px w-full bg-slate-200"></div>
+                <p className="flex items-center gap-3 font-medium text-slate-800">
+                  <FaWhatsapp size={16} className="text-green-500" /> (31) 98385-8280
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>
