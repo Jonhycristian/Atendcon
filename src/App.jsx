@@ -184,7 +184,10 @@ const AtendconSPA = () => {
       {/* 2. HERO SECTION */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-6 md:pt-20 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Office" className="w-full h-full object-cover" />
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/fundo01_mobile.png" />
+            <img src="/fundo01.png" alt="Office Background" className="w-full h-full object-cover" />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
         </div>
         
@@ -195,7 +198,7 @@ const AtendconSPA = () => {
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
             }}
-            className="max-w-3xl"
+            className="max-w-3xl text-center md:text-left flex flex-col items-center md:items-start mx-auto md:mx-0"
           >
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm">
               Excelência e Tradição Contábil em BH
@@ -206,7 +209,7 @@ const AtendconSPA = () => {
             <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-lg text-slate-300 mb-6 leading-relaxed max-w-2xl">
               Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
             </motion.p>
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start w-full sm:w-auto">
               <button onClick={() => setIsConsultationModalOpen(true)} className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
                 Agendar Consultoria <ArrowRight size={18} className="md:w-5 md:h-5"/>
               </button>
@@ -220,7 +223,7 @@ const AtendconSPA = () => {
             initial={{ opacity: 0, y: 40 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-3 gap-2 md:gap-6 mt-8 md:mt-12"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12"
           >
             {[
               { label: "Anos de Experiência", value: 10, prefix: "+" },
@@ -233,7 +236,7 @@ const AtendconSPA = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7 + (i * 0.1), duration: 0.5, type: "spring" }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/10 backdrop-blur-md border border-white/10 p-3 md:p-6 rounded-2xl text-white cursor-default text-center sm:text-left flex flex-col justify-center"
+                className="bg-white/10 backdrop-blur-md border border-white/10 p-4 md:p-6 rounded-2xl text-white cursor-default text-center flex flex-col justify-center"
               >
                 <div className="text-xl sm:text-3xl md:text-4xl font-black text-blue-400 mb-0.5 md:mb-1">
                   <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
@@ -259,7 +262,7 @@ const AtendconSPA = () => {
                 key={idx}
                 whileHover={{ y: -8 }}
                 onClick={() => setSelectedService(service)}
-                className="bg-slate-50 border border-slate-100 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:shadow-blue-600/10 transition-all group"
+                className="bg-slate-50 border border-slate-100 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:shadow-blue-600/10 transition-all group text-center md:text-left flex flex-col items-center md:items-start"
               >
                 <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   {service.icon}
@@ -404,7 +407,7 @@ const AtendconSPA = () => {
               <div className="text-blue-200 text-sm">Contabilidade Consultiva</div>
             </div>
           </div>
-          <div>
+          <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A atenção que sua empresa precisa</h2>
             <p className="text-slate-600 mb-6 leading-relaxed">
               A ATENDCON CONTABILIDADE tem fornecido serviços personalizados de contabilidade e fiscais em Belo Horizonte. Com nossa equipe altamente treinada, sempre em busca de novos conhecimentos, estamos prontos para lidar com todas as suas necessidades de contabilidade, seja qual for o grau de complexidade. Caso precise de ajuda com as suas finanças pessoais ou da sua empresa, estamos sempre prontos para fazer seu planejamento fiscal ou prestar assessoria.
@@ -412,8 +415,8 @@ const AtendconSPA = () => {
             <p className="text-slate-600 mb-6 leading-relaxed">
               Construímos uma excelente reputação cuidando das necessidades fiscais e contábeis de uma grande variedade de empresas e pessoas. Temos toda a informação disponível e queremos trabalhar com você.
             </p>
-            <div className="space-y-4">
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <div className="space-y-4 w-full">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-left">
                 <h4 className="font-bold text-slate-900 mb-2">Serviço Personalizado, Resultados Mensuráveis</h4>
                 <p className="text-slate-600 text-sm">Entregar segurança jurídica e financeira através de uma contabilidade consultiva, permitindo que você foque no que faz de melhor: o seu negócio.</p>
               </div>
@@ -583,7 +586,7 @@ const AtendconSPA = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2"
+            className="order-1 lg:order-2 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-bold text-sm mb-6">
               O Seu Escritório Digital
@@ -595,7 +598,7 @@ const AtendconSPA = () => {
               Com o aplicativo oficial da ATENDCON, você acompanha suas finanças, acessa guias de impostos, envia documentos e fala com seu contador em tempo real. Tudo isso direto do seu celular, de forma rápida, segura e sem burocracia.
             </p>
 
-            <ul className="space-y-4 mb-10">
+            <ul className="space-y-4 mb-10 text-left w-full max-w-md lg:max-w-none">
               {['Envio e recebimento de documentos fiscais', 'Acesso rápido a guias e relatórios', 'Atendimento direto com seu contador', 'Notificações importantes de vencimentos'].map((feature, i) => (
                 <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
                   <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
@@ -606,7 +609,7 @@ const AtendconSPA = () => {
               ))}
             </ul>
 
-            <div className="flex flex-wrap gap-4 mt-6">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-6">
               <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-black hover:bg-slate-900 hover:scale-105 border border-slate-800 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-fit">
                 <FaGooglePlay size={24} className="text-white" />
                 <div className="text-left">
@@ -630,7 +633,7 @@ const AtendconSPA = () => {
       <section id="contato" className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          <div>
+          <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-bold text-sm mb-4">
               Atendimento Rápido
             </div>
@@ -639,7 +642,7 @@ const AtendconSPA = () => {
               Explique brevemente a sua necessidade. Nossa equipe entrará em contato em instantes via WhatsApp para oferecer a melhor solução para o seu negócio.
             </p>
 
-            <form className="space-y-5" onSubmit={(e) => {
+            <form className="space-y-5 w-full text-left" onSubmit={(e) => {
               e.preventDefault();
               const nome = e.target.nome.value;
               const empresa = e.target.empresa.value;
@@ -722,7 +725,12 @@ const AtendconSPA = () => {
 
       {/* 9. CTA FINAL */}
       <section className="py-24 bg-blue-600 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80')] opacity-10 object-cover bg-center mix-blend-overlay"></div>
+        <div className="absolute inset-0 opacity-10 mix-blend-overlay">
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/fundo02_mobile.png" />
+            <img src="/fundo02.png" alt="Background" className="w-full h-full object-cover object-center" />
+          </picture>
+        </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
           <p className="text-xl text-blue-100 mb-10">Agende uma conversa e descubra como podemos alavancar o seu negócio.</p>
