@@ -127,17 +127,17 @@ const AtendconSPA = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white relative">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white relative overflow-x-hidden w-full">
       {/* Scroll Progress */}
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-50" style={{ scaleX }} />
 
       {/* 1. NAVBAR */}
       <header className={`fixed w-full top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-sm' : 'py-4'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-1">
+          <a href="/" className="flex items-center gap-1 cursor-pointer">
             <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
             <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain translate-y-1" />
-          </div>
+          </a>
           
           <nav className="hidden md:flex flex-1 justify-center gap-10 items-center font-medium text-sm text-slate-600">
             <a href="#servicos" className="hover:text-blue-600 transition-colors">Serviços</a>
