@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { 
   Menu, X, TrendingUp, TrendingDown, Calculator, Users, Briefcase, 
-  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, DollarSign, Activity
+  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, DollarSign, Activity, Clock
 } from 'lucide-react';
 import { FaWhatsapp, FaInstagram, FaGooglePlay, FaApple } from 'react-icons/fa';
 import logo from './assets/logo.png';
@@ -20,6 +20,15 @@ const Counter = ({ from, to, prefix = "", suffix = "" }) => {
 
   return <motion.span>{rounded}</motion.span>;
 };
+
+const faqs = [
+  { q: "Como trocar de contador?", a: "O processo é simples, rápido e nós cuidamos de tudo. Entramos em contato com o seu contador atual, solicitamos a documentação necessária e fazemos a transição de forma segura, sem interromper as atividades da sua empresa." },
+  { q: "Quanto custa abrir uma empresa?", a: "Os custos variam conforme a natureza jurídica, o porte da empresa e as taxas do estado. Na AtendCon, analisamos o seu perfil para garantir o melhor enquadramento tributário, minimizando os custos iniciais." },
+  { q: "Vocês atendem empresas de outras cidades?", a: "Sim! Nosso atendimento é digital e otimizado. Atendemos clientes de diversas regiões com a mesma agilidade e proximidade de um escritório físico, através da nossa plataforma e WhatsApp." },
+  { q: "Atendem construção civil?", a: "Sim, somos especialistas em Construção Civil e Incorporação Imobiliária. Oferecemos suporte completo para construtoras, loteamentos, regularização de obras e processos junto à Caixa." },
+  { q: "Fazem regularização fiscal?", a: "Com certeza. Fazemos uma auditoria completa da situação da sua empresa, identificamos pendências e criamos um plano de ação para regularizar tudo perante a Receita Federal, Estadual e Municipal." },
+  { q: "Trabalham com MEI?", a: "Sim, oferecemos assessoria para Microempreendedores Individuais (MEI), ajudando na abertura, declaração anual, emissão de guias e, futuramente, na transição para Microempresa (ME) quando o negócio crescer." }
+];
 
 const AtendconSPA = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,7 +50,7 @@ const AtendconSPA = () => {
   useEffect(() => {
     if (!isFaqInView) return;
     const interval = setInterval(() => {
-      setActiveFaq((prev) => (prev !== null ? (prev + 1) % 3 : 0));
+      setActiveFaq((prev) => (prev !== null ? (prev + 1) % faqs.length : 0));
     }, 5000);
     return () => clearInterval(interval);
   }, [isFaqInView]);
@@ -123,11 +132,7 @@ const AtendconSPA = () => {
     }
   ];
 
-  const faqs = [
-    { q: "Como funciona a troca de contador para a Atendcon?", a: "O processo é simples e transparente. Nós cuidamos de toda a transição de documentos e dados fiscais com seu antigo contador, garantindo 100% de conformidade." },
-    { q: "Vocês atendem empresas de quais portes?", a: "Atendemos desde microempreendedores até grandes empresas, adaptando nossos serviços de gestão fiscal e contábil ao grau de complexidade do seu negócio." },
-    { q: "O atendimento é 100% digital?", a: "Sim, utilizamos ferramentas tecnológicas para recebimento e envio de documentos, mas mantemos um relacionamento próximo e consultivo." }
-  ];
+
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white relative overflow-x-hidden w-full">
@@ -206,18 +211,32 @@ const AtendconSPA = () => {
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm">
               Excelência e Tradição Contábil em BH
             </motion.div>
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
-              Estruture o futuro do seu negócio com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">precisão contábil.</span>
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+              Contabilidade estratégica para empresas que desejam crescer com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">segurança.</span>
             </motion.h1>
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-lg text-slate-300 mb-6 leading-relaxed max-w-2xl">
-              Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
+            
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex items-center gap-4 mb-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-5 inline-flex shadow-xl">
+              <div className="flex flex-col items-center justify-center bg-white rounded-lg p-2 shrink-0">
+                <span className="text-xl font-black text-slate-800 leading-none mb-1">5.0</span>
+                <div className="flex text-yellow-500 text-sm">
+                  ★★★★★
+                </div>
+              </div>
+              <div className="text-left text-sm text-slate-300 leading-snug max-w-[280px] md:max-w-[320px]">
+                <span className="font-bold text-white block mb-0.5">Avaliação Máxima no Google</span>
+                Mais de 30 clientes recomendam a AtendCon Contabilidade pela qualidade, rapidez e confiança no atendimento.
+              </div>
+            </motion.div>
+
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
+              A AtendCon oferece soluções completas em contabilidade, fiscal, departamento pessoal e consultoria empresarial, ajudando empresários a manterem suas obrigações em dia e tomarem decisões mais seguras.
             </motion.p>
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start w-full sm:w-auto">
-              <button onClick={() => setIsConsultationModalOpen(true)} className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                Agendar Consultoria <ArrowRight size={18} className="md:w-5 md:h-5"/>
-              </button>
+              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 text-base md:text-lg">
+                👉 Falar com um Especialista
+              </a>
               <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
-                Explorar Serviços
+                Conhecer Soluções
               </a>
             </motion.div>
           </motion.div>
@@ -226,27 +245,31 @@ const AtendconSPA = () => {
             initial={{ opacity: 0, y: 40 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12"
+            className="mt-12 md:mt-16 w-full"
           >
-            {[
-              { label: "Anos de Experiência", value: 10, prefix: "+" },
-              { label: "Clientes Satisfeitos", value: 500, prefix: "+" },
-              { label: "Conformidade Fiscal", value: 100, suffix: "%" }
-            ].map((stat, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + (i * 0.1), duration: 0.5, type: "spring" }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/10 backdrop-blur-md border border-white/10 p-4 md:p-6 rounded-2xl text-white cursor-default text-center flex flex-col justify-center"
-              >
-                <div className="text-xl sm:text-3xl md:text-4xl font-black text-blue-400 mb-0.5 md:mb-1">
-                  <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-                </div>
-                <div className="text-[10px] sm:text-xs md:text-base text-slate-300 leading-tight">{stat.label}</div>
-              </motion.div>
-            ))}
+            <h3 className="text-slate-400 font-semibold mb-6 text-center md:text-left text-xs uppercase tracking-widest">Confiança construída com resultados</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { label: "Nota máxima no Google", value: 5, prefix: "⭐ ", suffix: ".0" },
+                { label: "Empresas atendidas", value: 300, prefix: "+", suffix: "" },
+                { label: "Processos realizados", value: 5000, prefix: "+", suffix: "" },
+                { label: "Retenção de Clientes", value: 98, prefix: "", suffix: "%" }
+              ].map((stat, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.7 + (i * 0.1), duration: 0.5, type: "spring" }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-2xl text-white cursor-default text-center flex flex-col justify-center"
+                >
+                  <div className="text-xl sm:text-2xl md:text-3xl font-black text-blue-400 mb-1">
+                    <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-slate-300 leading-tight">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -348,6 +371,82 @@ const AtendconSPA = () => {
             </div>
           )}
         </AnimatePresence>
+      </section>
+
+      {/* 3.5 DIFERENCIAIS E NICHO */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-bold text-xs mb-6 mx-auto">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+            Nossos Diferenciais
+          </div>
+          <h2 className="text-4xl font-black text-slate-900 mb-4">
+            Por que escolher a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">AtendCon?</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-12">
+            {[
+              "Atendimento Humanizado",
+              "Resposta Rápida",
+              "Especialistas em Construção Civil",
+              "Incorporação Imobiliária",
+              "Regularização Fiscal",
+              "Assessoria Empresarial Completa"
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex items-center gap-4 text-left"
+              >
+                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-5 h-5 text-blue-600" />
+                </div>
+                <span className="font-bold text-slate-800 text-sm md:text-base leading-tight">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center gap-10">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] pointer-events-none"></div>
+            
+            <div className="flex-1 relative z-10 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-bold text-xs mb-6 border border-yellow-500/30">
+                ⭐ Expertise de Nicho
+              </div>
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+                Especialistas em <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Construção Civil</span> e Incorporação
+              </h3>
+              <p className="text-slate-300 text-lg mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Temos o conhecimento técnico profundo que diferencia a AtendCon da maioria das contabilidades tradicionais. Atendimento completo para o setor imobiliário.
+              </p>
+              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Sou do setor de construção civil/incorporação e gostaria de saber como a AtendCon pode me ajudar.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="inline-block bg-yellow-500 text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-yellow-400 transition-colors shadow-lg">
+                Falar com Especialista do Setor
+              </a>
+            </div>
+            
+            <div className="flex-1 relative z-10 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  "Construtoras",
+                  "Incorporadoras",
+                  "Loteamentos",
+                  "Desmembramentos",
+                  "Regularizações imobiliárias",
+                  "Processos junto à Caixa"
+                ].map((item, i) => (
+                  <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 px-5 py-4 rounded-xl flex items-center gap-3 text-white font-medium">
+                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 4. METODO SECTION */}
@@ -561,6 +660,62 @@ const AtendconSPA = () => {
         </div>
       </section>
 
+      {/* 7.5 AVALIAÇÕES / PROVA SOCIAL */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-bold text-xs mb-6 mx-auto">
+            <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+            Prova Social
+          </div>
+          <h2 className="text-4xl font-black text-slate-900 mb-4 leading-tight">
+            O que nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">clientes dizem</span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            A satisfação dos nossos parceiros é o nosso maior termômetro de sucesso. Veja quem confia na AtendCon.
+          </p>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: "Décio Jr", text: "Excelente profissional com elevado conhecimento em contabilidade em geral. Atendimento nota 10. Altamente recomendável." },
+              { name: "Nívea Diniz", text: "Atendimento impecável. Fui orientada com clareza e honestidade do início ao fim." },
+              { name: "Karen Alexandra Victor Carneiro", text: "Há mais de 4 anos conto com o auxílio do Daniel para resolver questões junto à Receita Federal." },
+              { name: "Ana Sousa", text: "Fechamento de empresa realizado com eficiência e preço justo." },
+              { name: "Nilson Martins Peroche", text: "Profissional eficiente e dedicado. Recomendo sem dúvidas." },
+              { name: "Ciça Carolina", text: "Há quase 5 anos contamos com a AtendCon. Agilidade, atenção e competência." }
+            ].map((review, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="bg-white border border-slate-100 p-8 rounded-3xl shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              >
+                <div>
+                  <div className="flex text-yellow-400 text-lg mb-4">
+                    ★★★★★
+                  </div>
+                  <p className="text-slate-600 italic leading-relaxed mb-6">
+                    "{review.text}"
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-700 font-bold shrink-0">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-sm">{review.name}</h4>
+                    <span className="text-xs text-slate-500">Cliente AtendCon</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 8. CONTATO E MAPA */}
       <section id="contato" className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -664,8 +819,8 @@ const AtendconSPA = () => {
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
           <p className="text-xl text-slate-200 mb-10">Agende uma conversa e descubra como podemos alavancar o seu negócio.</p>
-          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de iniciar meu diagnóstico gratuito e transformar a contabilidade da minha empresa.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
-            Iniciar Diagnóstico Gratuito
+          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de solicitar atendimento e transformar a contabilidade da minha empresa.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
+            Solicitar Atendimento
           </a>
         </div>
       </section>
@@ -687,6 +842,7 @@ const AtendconSPA = () => {
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Comercial@atendcon.com.br</p>
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Operacional@atendcon.com.br</p>
               <p className="flex items-center gap-3 text-left"><MapPin size={18} className="text-blue-500 flex-shrink-0" /> <span>Avenida Cristiano Machado 640 sala 1507<br/>Sagrada Familia - BH- CEP 31030-514</span></p>
+              <p className="flex items-center gap-3"><Clock size={18} className="text-blue-500 flex-shrink-0" /> Seg a Sex: 08:00 às 18:00</p>
             </div>
             <div className="mt-8 flex flex-col items-center md:items-start gap-4">
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
@@ -705,8 +861,11 @@ const AtendconSPA = () => {
                   </div>
                 </a>
               </div>
-              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-105 transition-all shadow-lg hover:shadow-pink-500/50 font-bold text-sm">
+              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-105 transition-all shadow-lg hover:shadow-pink-500/50 font-bold text-sm w-full md:w-auto">
                 <FaInstagram size={20} /> Siga nosso Instagram
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-full hover:scale-105 transition-all shadow-lg font-bold text-sm border border-slate-200 w-full md:w-auto">
+                <span className="text-yellow-500 text-lg leading-none -mt-1">★</span> Avalie-nos no Google
               </a>
             </div>
           </div>
