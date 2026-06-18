@@ -900,7 +900,7 @@ const AtendconSPA = () => {
                 <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
                   <FaInstagram size={20} />
                 </a>
-                <a href="#" target="_blank" rel="noreferrer" className="px-4 h-10 rounded-full bg-white text-slate-900 flex items-center gap-2 hover:scale-105 transition-transform shadow-lg font-bold text-xs">
+                <a href="https://www.google.com/search?q=atendcon&oq=atendcon&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhAjGCcyCggDEAAYgAQYogQyBwgEEAAY7wUyCggFEAAYgAQYogQyBwgGEAAY7wUyBggHEEUYPNIBCDQyODRqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8#lpg=cid:CgIgAQ%3D%3D,ik:CAoSFkNJSE0wb2dLRUlDQWdJRHU3bzZ3WEE%3D" target="_blank" rel="noreferrer" className="px-4 h-10 rounded-full bg-white text-slate-900 flex items-center gap-2 hover:scale-105 transition-transform shadow-lg font-bold text-xs">
                   <span className="text-yellow-500 text-lg leading-none -mt-1">★</span> Avalie no Google
                 </a>
               </div>
