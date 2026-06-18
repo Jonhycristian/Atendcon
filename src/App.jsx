@@ -158,24 +158,24 @@ const AtendconSPA = () => {
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-50" style={{ scaleX }} />
 
       {/* 1. NAVBAR */}
-      <header className={`fixed w-full top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-sm' : 'py-4'}`}>
+      <header className={`fixed w-full top-0 z-40 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/50 py-2 shadow-sm' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <a href="/" className="flex items-center gap-1 cursor-pointer">
             <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
-            <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain translate-y-1" />
+            <img src={logo2} alt="Atendcon Text" className={`h-8 md:h-10 w-auto object-contain translate-y-1 transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`} />
           </a>
           
-          <nav className="hidden md:flex flex-1 justify-center gap-10 items-center font-medium text-sm text-slate-600">
-            <a href="#servicos" className="hover:text-blue-600 transition-colors">Serviços</a>
-            <a href="#metodo" className="hover:text-blue-600 transition-colors">Método</a>
-            <a href="#sobre" className="hover:text-blue-600 transition-colors">Quem Somos</a>
-            <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
-            <a href="#app" className="hover:text-blue-600 transition-colors">App</a>
-            <a href="#contato" className="hover:text-blue-600 transition-colors">Contato</a>
+          <nav className={`hidden md:flex flex-1 justify-center gap-10 items-center font-medium text-sm transition-colors duration-300 ${isScrolled ? 'text-slate-600' : 'text-slate-200'}`}>
+            <a href="#servicos" className={`transition-colors ${isScrolled ? 'hover:text-blue-600' : 'hover:text-white'}`}>Serviços</a>
+            <a href="#metodo" className={`transition-colors ${isScrolled ? 'hover:text-blue-600' : 'hover:text-white'}`}>Método</a>
+            <a href="#sobre" className={`transition-colors ${isScrolled ? 'hover:text-blue-600' : 'hover:text-white'}`}>Quem Somos</a>
+            <a href="#faq" className={`transition-colors ${isScrolled ? 'hover:text-blue-600' : 'hover:text-white'}`}>FAQ</a>
+            <a href="#app" className={`transition-colors ${isScrolled ? 'hover:text-blue-600' : 'hover:text-white'}`}>App</a>
+            <a href="#contato" className={`transition-colors ${isScrolled ? 'hover:text-blue-600' : 'hover:text-white'}`}>Contato</a>
           </nav>
 
           <div className="hidden md:flex items-center gap-6 text-sm">
-            <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-600 border border-blue-600 px-5 py-2 rounded-full hover:bg-blue-50 font-bold transition-all shadow-sm">
+            <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className={`border px-5 py-2 rounded-full font-bold transition-all ${isScrolled ? 'text-blue-600 border-blue-600 hover:bg-blue-50' : 'text-white border-white/50 hover:bg-white/10 hover:border-white'}`}>
               Área do Cliente
             </a>
             <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
@@ -183,7 +183,7 @@ const AtendconSPA = () => {
             </a>
           </div>
 
-          <button className="md:hidden text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className={`md:hidden transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
