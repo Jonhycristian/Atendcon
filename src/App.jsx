@@ -249,7 +249,7 @@ const AtendconSPA = () => {
       </section>
 
       {/* 3. SERVICES SECTION */}
-      <section id="servicos" className="py-24 bg-white">
+      <section id="servicos" className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">O Que Entregamos</h2>
@@ -402,7 +402,7 @@ const AtendconSPA = () => {
       </section>
 
       {/* 5. QUEM SOMOS */}
-      <section id="sobre" className="py-24 bg-slate-50">
+      <section id="sobre" className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80" alt="Team" className="rounded-3xl shadow-2xl object-cover h-[500px] w-full" />
@@ -432,6 +432,9 @@ const AtendconSPA = () => {
 
       {/* 6. FAQ */}
       <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/fundo02.png" alt="Background FAQ" className="w-full h-full object-cover opacity-[0.03]" />
+        </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-bold text-xs mb-6 mx-auto">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
@@ -442,11 +445,11 @@ const AtendconSPA = () => {
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-4 min-h-[500px] md:min-h-[400px]" onMouseEnter={() => setIsFaqHovered(true)} onMouseLeave={() => setIsFaqHovered(false)}>
+        <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-4">
           {faqs.map((faq, i) => (
             <div 
               key={i} 
-              onMouseEnter={() => setActiveFaq(i)}
+              onClick={() => setActiveFaq(activeFaq === i ? null : i)}
               className={`bg-white border ${activeFaq === i ? 'border-blue-500 shadow-lg shadow-blue-100 scale-[1.02]' : 'border-slate-200 hover:border-blue-300 scale-100'} rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer`}
             >
               <div className="w-full flex justify-between items-center p-6 text-left">
@@ -556,7 +559,7 @@ const AtendconSPA = () => {
       </section>
 
       {/* 8. CONTATO E MAPA */}
-      <section id="contato" className="py-24 bg-white relative">
+      <section id="contato" className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
