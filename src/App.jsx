@@ -685,24 +685,25 @@ const AtendconSPA = () => {
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Comercial@atendcon.com.br</p>
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Operacional@atendcon.com.br</p>
             </div>
-            <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
-              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-110 transition-all shadow-lg hover:shadow-pink-500/50 shrink-0">
-                <FaInstagram size={20} />
-              </a>
-              <div className="h-8 w-px bg-slate-800 hidden sm:block"></div>
-              <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-blue-500/50 shrink-0">
-                <FaGooglePlay size={16} className="text-white" />
-                <div className="text-left">
-                  <div className="text-[9px] leading-none text-emerald-100">Disponível no</div>
-                  <div className="text-xs font-bold leading-tight">Google Play</div>
-                </div>
-              </a>
-              <a href="#" className="flex items-center gap-2 bg-gradient-to-r from-slate-700 to-slate-900 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-slate-500/50 shrink-0">
-                <FaApple size={20} className="text-white" />
-                <div className="text-left">
-                  <div className="text-[9px] leading-none text-slate-300">Baixar na</div>
-                  <div className="text-xs font-bold leading-tight">App Store</div>
-                </div>
+            <div className="mt-8 flex flex-col items-center md:items-start gap-4">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-blue-500/50 shrink-0">
+                  <FaGooglePlay size={16} className="text-white" />
+                  <div className="text-left">
+                    <div className="text-[9px] leading-none text-emerald-100">Disponível no</div>
+                    <div className="text-xs font-bold leading-tight">Google Play</div>
+                  </div>
+                </a>
+                <a href="#" className="flex items-center gap-2 bg-gradient-to-r from-slate-700 to-slate-900 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-slate-500/50 shrink-0">
+                  <FaApple size={20} className="text-white" />
+                  <div className="text-left">
+                    <div className="text-[9px] leading-none text-slate-300">Baixar na</div>
+                    <div className="text-xs font-bold leading-tight">App Store</div>
+                  </div>
+                </a>
+              </div>
+              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-105 transition-all shadow-lg hover:shadow-pink-500/50 font-bold text-sm">
+                <FaInstagram size={20} /> Siga nosso Instagram
               </a>
             </div>
           </div>
