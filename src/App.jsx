@@ -38,6 +38,7 @@ const AtendconSPA = () => {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const testimonialsRef = useRef(null);
+  const isTestimonialsInView = useInView(testimonialsRef, { margin: "100px" });
   const [isTestimonialsPaused, setIsTestimonialsPaused] = useState(false);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const AtendconSPA = () => {
   }, []);
 
   useEffect(() => {
-    if (isTestimonialsPaused) return;
+    if (isTestimonialsPaused || !isTestimonialsInView) return;
     const interval = setInterval(() => {
       if (testimonialsRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = testimonialsRef.current;
@@ -59,7 +60,7 @@ const AtendconSPA = () => {
       }
     }, 3500);
     return () => clearInterval(interval);
-  }, [isTestimonialsPaused]);
+  }, [isTestimonialsPaused, isTestimonialsInView]);
 
   const faqRef = useRef(null);
   const isFaqInView = useInView(faqRef, { margin: "-200px" });
