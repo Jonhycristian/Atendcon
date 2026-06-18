@@ -214,19 +214,6 @@ const AtendconSPA = () => {
             <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
               Contabilidade estratégica para empresas que desejam crescer com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">segurança.</span>
             </motion.h1>
-            
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex items-center gap-4 mb-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-5 inline-flex shadow-xl">
-              <div className="flex flex-col items-center justify-center bg-white rounded-lg p-2 shrink-0">
-                <span className="text-xl font-black text-slate-800 leading-none mb-1">5.0</span>
-                <div className="flex text-yellow-500 text-sm">
-                  ★★★★★
-                </div>
-              </div>
-              <div className="text-left text-sm text-slate-300 leading-snug max-w-[280px] md:max-w-[320px]">
-                <span className="font-bold text-white block mb-0.5">Avaliação Máxima no Google</span>
-                Mais de 30 clientes recomendam a AtendCon Contabilidade pela qualidade, rapidez e confiança no atendimento.
-              </div>
-            </motion.div>
 
             <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
               A AtendCon oferece soluções completas em contabilidade, fiscal, departamento pessoal e consultoria empresarial, ajudando empresários a manterem suas obrigações em dia e tomarem decisões mais seguras.
@@ -241,36 +228,7 @@ const AtendconSPA = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="mt-12 md:mt-16 w-full"
-          >
-            <h3 className="text-slate-400 font-semibold mb-6 text-center md:text-left text-xs uppercase tracking-widest">Confiança construída com resultados</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { label: "Nota máxima no Google", value: 5, prefix: "⭐ ", suffix: ".0" },
-                { label: "Empresas atendidas", value: 300, prefix: "+", suffix: "" },
-                { label: "Processos realizados", value: 5000, prefix: "+", suffix: "" },
-                { label: "Retenção de Clientes", value: 98, prefix: "", suffix: "%" }
-              ].map((stat, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.7 + (i * 0.1), duration: 0.5, type: "spring" }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-2xl text-white cursor-default text-center flex flex-col justify-center"
-                >
-                  <div className="text-xl sm:text-2xl md:text-3xl font-black text-blue-400 mb-1">
-                    <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-[10px] sm:text-xs text-slate-300 leading-tight">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+
         </div>
       </section>
 
@@ -655,6 +613,44 @@ const AtendconSPA = () => {
                   <div className="text-sm font-semibold leading-tight">App Store</div>
                 </div>
               </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 7.4 DADOS E RESULTADOS */}
+      <section className="py-20 bg-slate-900 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full"
+          >
+            <h3 className="text-slate-400 font-semibold mb-8 text-center text-sm uppercase tracking-widest">Confiança construída com resultados</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { label: "Nota máxima no Google", value: 5, prefix: "⭐ ", suffix: ".0" },
+                { label: "Empresas atendidas", value: 300, prefix: "+", suffix: "" },
+                { label: "Processos realizados", value: 5000, prefix: "+", suffix: "" },
+                { label: "Retenção de Clientes", value: 98, prefix: "", suffix: "%" }
+              ].map((stat, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5, type: "spring" }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-3xl text-white cursor-default text-center flex flex-col justify-center hover:bg-white/10 transition-colors"
+                >
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-black text-blue-400 mb-2">
+                    <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-sm text-slate-300 leading-tight">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
