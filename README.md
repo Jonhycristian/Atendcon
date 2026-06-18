@@ -1,6 +1,5 @@
 # AtendCon Contabilidade - Landing Page Moderna
 
-![AtendCon Hero Section](public/fundo-00.png)
 ![App Desktop](public/img/atendcon-banner-desktop.png)
 
 Uma Landing Page de alta performance, moderna e responsiva desenvolvida para a **AtendCon Contabilidade**, projetada para converter visitantes em clientes através de uma experiência de usuário (UX) premium e visual de ponta.
