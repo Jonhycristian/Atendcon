@@ -677,7 +677,7 @@ const AtendconSPA = () => {
           <div className="flex flex-col items-center gap-4 mt-6">
             <p className="text-slate-300 md:text-lg flex items-center justify-center gap-2 font-medium">
               <span className="text-yellow-500 text-xl tracking-widest">★★★★★</span>
-              Mais de <strong className="text-white">50 avaliações</strong> no Google
+              Mais de <strong className="text-white">37 avaliações</strong> no Google
             </p>
             <a href="https://www.google.com/search?q=atendcon&oq=atendcon&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhAjGCcyCggDEAAYgAQYogQyBwgEEAAY7wUyCggFEAAYgAQYogQyBwgGEAAY7wUyBggHEEUYPNIBCDQyODRqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8#lpg=cid:CgIgAQ%3D%3D,ik:CAoSFkNJSE0wb2dLRUlDQWdJRHU3bzZ3WEE%3D" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-slate-900 rounded-full hover:bg-slate-100 hover:scale-105 transition-all shadow-xl font-bold text-sm mt-2">
               Deixe sua avaliação
