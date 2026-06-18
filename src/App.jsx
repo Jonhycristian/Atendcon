@@ -431,17 +431,17 @@ const AtendconSPA = () => {
       </section>
 
       {/* 6. FAQ */}
-      <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 mix-blend-multiply">
+      <section id="faq" className="py-24 bg-[#020617] text-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen">
           <img src="/fundo02.png" alt="Background FAQ" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-bold text-xs mb-6 mx-auto">
-            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold text-xs mb-6 mx-auto">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
             Tire suas dúvidas
           </div>
-          <h2 className="text-4xl font-black text-slate-900 mb-2 leading-tight">
-            Dúvidas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Frequentes</span>
+          <h2 className="text-4xl font-black text-white mb-2 leading-tight">
+            Dúvidas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Frequentes</span>
           </h2>
         </div>
 
@@ -450,11 +450,11 @@ const AtendconSPA = () => {
             <div 
               key={i} 
               onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-              className={`bg-white border ${activeFaq === i ? 'border-blue-500 shadow-lg shadow-blue-100 scale-[1.02]' : 'border-slate-200 hover:border-blue-300 scale-100'} rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer`}
+              className={`bg-white/5 backdrop-blur-md border ${activeFaq === i ? 'border-blue-500 shadow-lg shadow-blue-500/20' : 'border-white/10 hover:border-blue-400/50'} rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer`}
             >
               <div className="w-full flex justify-between items-center p-6 text-left">
-                <span className={`font-bold text-lg transition-colors ${activeFaq === i ? 'text-blue-700' : 'text-slate-800'}`}>{faq.q}</span>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${activeFaq === i ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                <span className={`font-bold text-lg transition-colors ${activeFaq === i ? 'text-blue-400' : 'text-slate-200'}`}>{faq.q}</span>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${activeFaq === i ? 'bg-blue-600 text-white' : 'bg-white/10 text-slate-400'}`}>
                   <ChevronDown className={`transform transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} size={18} />
                 </div>
               </div>
@@ -462,9 +462,9 @@ const AtendconSPA = () => {
                 {activeFaq === i && (
                   <motion.div 
                     initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                    className="px-6 pb-6 text-slate-600 leading-relaxed"
+                    className="overflow-hidden"
                   >
-                    <div className="pt-2 border-t border-slate-100">
+                    <div className="px-6 pb-6 text-slate-300 leading-relaxed pt-2 border-t border-white/10">
                       {faq.a}
                     </div>
                   </motion.div>
@@ -475,10 +475,10 @@ const AtendconSPA = () => {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mt-10">
-          <p className="text-lg text-slate-600 mb-6">
+          <p className="text-lg text-slate-400 mb-6">
             Não encontrou o que procurava? Fale diretamente com nossa equipe.
           </p>
-          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Estou no site e tenho algumas dúvidas específicas.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-600 transition-colors shadow-lg">
+          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Estou no site e tenho algumas dúvidas específicas.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg">
             <FaWhatsapp size={18}/> Chamar no WhatsApp
           </a>
         </div>
