@@ -268,14 +268,14 @@ const AtendconSPA = () => {
                 key={idx}
                 whileHover={{ y: -8 }}
                 onClick={() => setSelectedService(service)}
-                className="bg-gradient-to-br from-blue-50 to-white border border-blue-100/60 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:shadow-blue-600/20 hover:border-blue-300 transition-all group text-center md:text-left flex flex-col items-center md:items-start relative overflow-hidden"
+                className="bg-gradient-to-br from-blue-100 to-blue-50/80 border border-blue-200 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:shadow-blue-600/20 hover:border-blue-400 transition-all group text-center md:text-left flex flex-col items-center md:items-start relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/5 rounded-full blur-2xl group-hover:bg-blue-400/10 transition-colors"></div>
-                <div className="w-16 h-16 bg-white border border-blue-50 rounded-2xl shadow-sm shadow-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-400/20 transition-colors"></div>
+                <div className="w-16 h-16 bg-white border border-blue-100 rounded-2xl shadow-sm shadow-blue-200 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-950 relative z-10">{service.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed relative z-10">{service.desc}</p>
+                <p className="text-slate-700 text-sm leading-relaxed relative z-10 font-medium">{service.desc}</p>
               </motion.div>
             ))}
           </div>
