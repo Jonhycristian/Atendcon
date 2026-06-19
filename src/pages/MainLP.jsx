@@ -542,8 +542,40 @@ const AtendconSPA = () => {
       {/* 5. QUEM SOMOS */}
       <section id="sobre" className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <img src="/fundo06.png" alt="Team" className="rounded-3xl shadow-2xl object-cover h-[500px] w-full" />
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] w-full group">
+            <img src="/fundo06.png" alt="Team" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/70 to-slate-900/20 flex flex-col justify-end p-6 md:p-8">
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                <div className="text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <ShieldCheck size={20} className="text-teal-400" />
+                    <h4 className="font-bold text-sm md:text-base">Segurança</h4>
+                  </div>
+                  <p className="text-slate-300 text-xs md:text-sm">Conformidade e tranquilidade para seu negócio.</p>
+                </div>
+                <div className="text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <TrendingUp size={20} className="text-teal-400" />
+                    <h4 className="font-bold text-sm md:text-base">Estratégia</h4>
+                  </div>
+                  <p className="text-slate-300 text-xs md:text-sm">Decisões baseadas em dados.</p>
+                </div>
+                <div className="text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Activity size={20} className="text-teal-400" />
+                    <h4 className="font-bold text-sm md:text-base">Propósito</h4>
+                  </div>
+                  <p className="text-slate-300 text-xs md:text-sm">Mais tempo para os pacientes.</p>
+                </div>
+                <div className="text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <ArrowRight size={20} className="text-teal-400" />
+                    <h4 className="font-bold text-sm md:text-base">Crescimento</h4>
+                  </div>
+                  <p className="text-slate-300 text-xs md:text-sm">Planejamento para expandir a clínica.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A atenção que sua empresa precisa</h2>
