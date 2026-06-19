@@ -543,7 +543,7 @@ const AtendconSPA = () => {
       <section id="sobre" className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <img src="/fundo04.png" alt="Team" className="rounded-3xl shadow-2xl object-cover h-[500px] w-full" />
+            <img src="/fundo04.jpeg" alt="Team" className="rounded-3xl shadow-2xl object-cover h-[500px] w-full" />
             <div className="absolute -bottom-8 -right-8 bg-blue-600 text-white p-8 rounded-3xl shadow-xl hidden md:block">
               <ShieldCheck size={40} className="mb-4" />
               <div className="font-bold text-xl">Alto Padrão</div>
