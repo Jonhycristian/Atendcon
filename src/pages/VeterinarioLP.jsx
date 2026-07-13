@@ -1025,8 +1025,10 @@ const AtendconSPA = () => {
           <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-wide text-slate-500">
             <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
 
-            <div className="bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-slate-400 shadow-inner">
-              CNPJ: 31.805.729/0001-69
+            <div className="bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-slate-400 shadow-inner flex flex-col md:flex-row items-center gap-2">
+              <span>Razão Social: Daniel Henrique Souza</span>
+              <span className="hidden md:block w-1 h-1 rounded-full bg-slate-600"></span>
+              <span>CNPJ: 31.805.729/0001-69</span>
             </div>
           </div>
         </div>
