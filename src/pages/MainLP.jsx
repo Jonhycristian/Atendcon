@@ -719,7 +719,7 @@ const AtendconSPA = () => {
                   <div className="text-sm font-semibold leading-tight">Google Play</div>
                 </div>
               </a>
-              <a href="#" className="flex items-center gap-3 bg-black hover:bg-slate-900 hover:scale-105 border border-slate-800 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-fit">
+              <a href="https://apps.apple.com/br/app/atendcon-contabilidade/id6799969483" target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-black hover:bg-slate-900 hover:scale-105 border border-slate-800 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-fit">
                 <FaApple size={28} className="text-white" />
                 <div className="text-left">
                   <div className="text-[9px] leading-none text-slate-300 mb-0.5">Baixar na</div>
@@ -970,7 +970,7 @@ const AtendconSPA = () => {
                     <div className="text-sm font-bold">Google Play</div>
                   </div>
                 </a>
-                <a href="#" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-full">
+                <a href="https://apps.apple.com/br/app/atendcon-contabilidade/id6799969483" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-full">
                   <FaApple size={24} className="text-slate-200 shrink-0" />
                   <div className="text-left leading-tight">
                     <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold mb-0.5">Baixar na</div>
