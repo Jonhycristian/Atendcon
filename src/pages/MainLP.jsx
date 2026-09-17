@@ -9,6 +9,7 @@ import { FaWhatsapp, FaInstagram, FaGooglePlay, FaApple } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 import logo1 from '../assets/logo1.png';
 import logo2 from '../assets/logo2.png';
+import { usePageSeo } from '../utils/seo';
 
 const Counter = ({ from, to, prefix = "", suffix = "" }) => {
   const count = useMotionValue(from);
@@ -32,6 +33,13 @@ const faqs = [
 ];
 
 const AtendconSPA = () => {
+  usePageSeo({
+    title: "ATENDCON - Contabilidade Consultiva e Gestão Fiscal em BH",
+    description: "Contabilidade consultiva em Belo Horizonte: gestão fiscal, contábil e departamento pessoal para serviços, comércio e saúde. Fale com um especialista.",
+    path: "/",
+    faqs,
+    preloadImage: "/fundo-00.webp",
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(0);
   const [isFaqHovered, setIsFaqHovered] = useState(false);
@@ -193,7 +201,7 @@ const AtendconSPA = () => {
             </button>
           </div>
 
-          <button className="md:hidden text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className="md:hidden text-slate-900" aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -220,7 +228,7 @@ const AtendconSPA = () => {
       {/* 2. HERO SECTION */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-6 md:pt-28 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/fundo-00.png" alt="Office Background" className="w-full h-full object-cover" />
+          <img src="/fundo-00.webp" alt="Escritório de contabilidade AtendCon em Belo Horizonte" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
         </div>
         
@@ -490,7 +498,7 @@ const AtendconSPA = () => {
       {/* 4. METODO SECTION */}
       <section id="metodo" className="py-24 bg-[#020617] text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/fundo03.png" alt="Background Método" className="w-full h-full object-cover opacity-40" />
+          <img src="/fundo03.webp" alt="Método de gestão contábil e fiscal AtendCon" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-transparent to-[#020617]"></div>
         </div>
 
@@ -544,7 +552,7 @@ const AtendconSPA = () => {
       <section id="sobre" className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[450px] md:h-[500px] w-full group bg-slate-900">
-            <img src="/fundo06.png" alt="Team" className="w-full h-full object-contain md:object-cover object-top md:object-center md:group-hover:scale-105 transition-transform duration-700" />
+            <img src="/fundo06.webp" alt="Equipe AtendCon de contabilidade consultiva em Belo Horizonte" loading="lazy" decoding="async" className="w-full h-full object-contain md:object-cover object-top md:object-center md:group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/70 to-slate-900/20 flex flex-col justify-end p-6 md:p-8">
               <div className="grid grid-cols-2 gap-2 md:gap-4 mt-2">
                 <div className="group/item flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/5 transition-colors cursor-default">
@@ -607,7 +615,7 @@ const AtendconSPA = () => {
       {/* 6. FAQ */}
       <section id="faq" ref={faqRef} className="py-24 bg-[#020617] text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen">
-          <img src="/fundo02.png" alt="Background FAQ" className="w-full h-full object-cover" />
+          <img src="/fundo02.webp" alt="Perguntas frequentes sobre contabilidade e gestão fiscal" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold text-xs mb-6 mx-auto">
@@ -675,7 +683,7 @@ const AtendconSPA = () => {
             <div className="relative">
               {/* Imagem do Aplicativo */}
               <div className="relative w-[280px] md:w-[320px] mx-auto rounded-[2rem] shadow-2xl overflow-hidden border-[8px] border-slate-900 bg-slate-900">
-                <img src="/app.png" alt="Aplicativo ATENDCON" className="w-full h-auto object-cover rounded-2xl" />
+                <img src="/app.webp" alt="Aplicativo AtendCon com guias de impostos e documentos fiscais" loading="lazy" decoding="async" className="w-full h-auto object-cover rounded-2xl" />
                 
                 {/* Logo sobreposta */}
                 <div className="absolute top-10 md:top-11 left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
@@ -833,7 +841,7 @@ const AtendconSPA = () => {
                   emissor.atendcon.com.br
                 </span>
               </div>
-              <img src="/notafiscal.jpeg" alt="Sistema emissor de nota fiscal AtendCon" className="w-full h-auto object-cover" />
+              <img src="/notafiscal.jpeg" alt="Sistema emissor de nota fiscal AtendCon" loading="lazy" decoding="async" className="w-full h-auto object-cover" />
             </div>
             {/* Selo flutuante */}
             <div className="absolute -bottom-4 left-4 md:left-6 flex items-center gap-2 bg-slate-900/90 backdrop-blur-md border border-white/15 rounded-full pl-2 pr-4 py-1.5 shadow-xl">
@@ -850,8 +858,8 @@ const AtendconSPA = () => {
       <section className="py-24 relative overflow-hidden border-t border-slate-800 text-white">
         <div className="absolute inset-0 z-0">
           <picture>
-            <source media="(max-width: 768px)" srcSet="/fundo01_mobile.png" />
-            <img src="/fundo01.png" alt="Background Avaliações" className="w-full h-full object-cover" />
+            <source media="(max-width: 768px)" srcSet="/fundo01_mobile.webp" />
+            <img src="/fundo01.webp" alt="Avaliações de clientes da contabilidade AtendCon no Google" loading="lazy" decoding="async" className="w-full h-full object-cover" />
           </picture>
           <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
         </div>
@@ -958,8 +966,8 @@ const AtendconSPA = () => {
               </div>
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1.5">Qual sua necessidade principal? *</label>
-                <select name="servico" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all text-slate-700" required>
-                  <option value="" disabled selected>Selecione uma opção...</option>
+                <select name="servico" defaultValue="" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all text-slate-700" required>
+                  <option value="" disabled>Selecione uma opção...</option>
                   <option value="Abertura de Empresa">Quero abrir uma empresa</option>
                   <option value="Troca de Contador">Quero trocar de contador</option>
                   <option value="Consultoria Tributária">Preciso reduzir meus impostos</option>
@@ -981,6 +989,7 @@ const AtendconSPA = () => {
           <div className="relative h-full w-full min-h-[500px] lg:min-h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white isolate bg-slate-100 group">
             {/* Map Frame */}
             <iframe 
+              title="Mapa da sede da AtendCon em Belo Horizonte"
               src="https://maps.google.com/maps?q=Avenida%20Cristiano%20Machado%20640%20sala%201507%20Sagrada%20Familia%20Belo%20Horizonte&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
@@ -1021,7 +1030,7 @@ const AtendconSPA = () => {
       {/* 9. CTA FINAL */}
       <section className="py-24 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/fundo04.png" alt="Background" className="w-full h-full object-cover object-center" />
+          <img src="/fundo04.webp" alt="Fale com a AtendCon e transforme a contabilidade em vantagem competitiva" loading="lazy" decoding="async" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-slate-900/60"></div>
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
@@ -1041,7 +1050,7 @@ const AtendconSPA = () => {
             {/* Logo & Sobre */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 bg-white/5 p-4 rounded-2xl border border-white/10 shadow-xl inline-block backdrop-blur-sm">
-                <img src="/logo02.png" alt="Atendcon Logo" className="h-12 md:h-16 w-auto object-contain" />
+                <img src="/logo02.png" alt="Logotipo AtendCon Contabilidade" loading="lazy" decoding="async" className="h-12 md:h-16 w-auto object-contain" />
               </div>
               <p className="text-sm text-slate-400 leading-relaxed max-w-xs font-medium">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
             </div>
