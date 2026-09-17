@@ -189,6 +189,7 @@ const AtendconSPA = () => {
             <a href="#sobre" className="hover:text-blue-600 transition-colors">Quem Somos</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
             <a href="#app" className="hover:text-blue-600 transition-colors">App</a>
+            <a href="/#nfe" className="hover:text-blue-600 transition-colors">Nota Fiscal</a>
             <a href="#contato" className="hover:text-blue-600 transition-colors">Contato</a>
           </nav>
 
@@ -218,6 +219,7 @@ const AtendconSPA = () => {
               <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Quem Somos</a>
               <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">FAQ</a>
               <a href="#app" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Nosso App</a>
+              <a href="/#nfe" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Nota Fiscal</a>
               <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 hover:text-blue-700 transition flex items-center gap-3 font-bold mt-2">Área do Cliente</a>
               <a href="https://emissor.atendcon.com.br" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 hover:text-blue-700 transition flex items-center gap-3 font-bold">Emissor de Nota Fiscal</a>
               <button onClick={(e) => { setIsMobileMenuOpen(false); openTriageModal(e); }} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:scale-105 transition-transform text-white text-center py-4 rounded-full mt-2 font-bold shadow-lg shadow-blue-500/30 w-full">Falar com Especialista</button>
