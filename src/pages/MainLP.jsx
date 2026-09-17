@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { 
   Menu, X, TrendingUp, TrendingDown, Calculator, Users, Briefcase, 
-  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, DollarSign, Activity, Clock, Heart, Rocket
+  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, DollarSign, Activity, Clock, Heart, Rocket,
+  FileText, Receipt, Truck, FileCheck, Cloud, Zap, LifeBuoy, ExternalLink
 } from 'lucide-react';
 import { FaWhatsapp, FaInstagram, FaGooglePlay, FaApple } from 'react-icons/fa';
 import logo from '../assets/logo.png';
@@ -731,6 +732,119 @@ const AtendconSPA = () => {
         </div>
       </section>
 
+      {/* 7.2 EMISSÃO DE NOTA FISCAL */}
+      <section id="nota-fiscal" className="relative py-16 md:py-20 bg-[#020617] overflow-hidden text-white">
+        {/* Decorative elements (mesma identidade das seções escuras) */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* Coluna de texto */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left flex flex-col items-center lg:items-start"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold text-xs mb-4">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              Emissor AtendCon
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black mb-3 leading-tight">
+              EMISSÃO DE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">NOTA FISCAL</span>
+            </h2>
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl">
+              Praticidade, segurança e suporte especializado para o seu negócio.
+            </p>
+            <p className="text-slate-400 text-sm md:text-base mt-1 font-medium">
+              Sua empresa em conformidade, sempre.
+            </p>
+
+            <div className="grid grid-cols-2 gap-3 mt-6 w-full max-w-xl">
+              {[
+                { icon: <FileText size={20} />, sigla: "NF-e", desc: "Nota Fiscal Eletrônica" },
+                { icon: <Receipt size={20} />, sigla: "NFC-e", desc: "Nota Fiscal de Consumidor Eletrônica" },
+                { icon: <Truck size={20} />, sigla: "MDF-e", desc: "Manifesto Eletrônico de Documentos Fiscais" },
+                { icon: <FileCheck size={20} />, sigla: "CT-e", desc: "Conhecimento de Transporte Eletrônico" }
+              ].map((card, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                  whileHover={{ y: -5 }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-600/20 transition-all cursor-default"
+                >
+                  <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-600/30 mb-2">
+                    {card.icon}
+                  </div>
+                  <h3 className="font-black text-sm md:text-base tracking-wide">{card.sigla}</h3>
+                  <p className="text-slate-400 text-[11px] md:text-xs leading-snug mt-1">{card.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mt-5 text-[11px] md:text-xs font-semibold text-slate-200">
+              {[
+                { icon: <ShieldCheck size={14} />, label: "Emissão segura" },
+                { icon: <Cloud size={14} />, label: "Acesso em nuvem" },
+                { icon: <Zap size={14} />, label: "Agilidade" },
+                { icon: <LifeBuoy size={14} />, label: "Suporte especializado" }
+              ].map((item, i) => (
+                <span key={i} className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
+                  <span className="text-cyan-300">{item.icon}</span>
+                  {item.label}
+                </span>
+              ))}
+            </div>
+
+            <p className="text-sm md:text-base font-extrabold tracking-wide mt-6">
+              FOQUE NO SEU NEGÓCIO. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">NÓS CUIDAMOS DA TECNOLOGIA.</span>
+            </p>
+            <a
+              href="https://emissor.atendcon.com.br"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center justify-center gap-2 mt-5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-8 py-3.5 rounded-full font-bold text-sm md:text-base transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105"
+            >
+              Acessar Sistema
+              <ExternalLink size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </motion.div>
+
+          {/* Coluna do sistema real */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative w-full"
+          >
+            <div className="absolute -inset-6 bg-gradient-to-br from-blue-600/25 to-cyan-500/10 rounded-[2rem] blur-2xl pointer-events-none"></div>
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl shadow-blue-950/50 bg-slate-900">
+              {/* Barra do navegador */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-slate-800/90 border-b border-white/10">
+                <span className="w-3 h-3 rounded-full bg-red-400/80"></span>
+                <span className="w-3 h-3 rounded-full bg-yellow-400/80"></span>
+                <span className="w-3 h-3 rounded-full bg-green-400/80"></span>
+                <span className="ml-3 flex-1 text-center text-[11px] md:text-xs text-slate-300 bg-white/5 border border-white/10 rounded-full px-4 py-1 truncate">
+                  emissor.atendcon.com.br
+                </span>
+              </div>
+              <img src="/notafiscal.jpeg" alt="Sistema emissor de nota fiscal AtendCon" className="w-full h-auto object-cover" />
+            </div>
+            {/* Selo flutuante */}
+            <div className="absolute -bottom-4 left-4 md:left-6 flex items-center gap-2 bg-slate-900/90 backdrop-blur-md border border-white/15 rounded-full pl-2 pr-4 py-1.5 shadow-xl">
+              <span className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white">
+                <Cloud size={15} />
+              </span>
+              <span className="text-xs font-bold text-slate-100">Sistema em nuvem • acesso de onde estiver</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* 7.5 AVALIAÇÕES / PROVA SOCIAL */}
       <section className="py-24 relative overflow-hidden border-t border-slate-800 text-white">
