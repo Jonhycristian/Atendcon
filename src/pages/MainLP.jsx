@@ -1061,6 +1061,7 @@ const AtendconSPA = () => {
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>Links Rápidos</h4>
               <ul className="flex flex-col gap-3 text-sm font-medium">
                 <li><a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 transition flex items-center gap-2"><ArrowRight size={14}/> Área do Cliente</a></li>
+                <li><a href="https://emissor.atendcon.com.br" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 transition flex items-center gap-2"><ArrowRight size={14}/> Emissor de Nota Fiscal</a></li>
                 <li><a href="#servicos" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Serviços</a></li>
                 <li><a href="#metodo" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Nosso Método</a></li>
                 <li><a href="#sobre" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Quem Somos</a></li>
