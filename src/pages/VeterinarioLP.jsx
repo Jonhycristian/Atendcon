@@ -177,13 +177,13 @@ const AtendconSPA = () => {
 
       {/* 1. NAVBAR */}
       <header className={`fixed w-full top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-sm' : 'py-4'}`}>
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <a href="/" className="flex items-center gap-1 cursor-pointer">
+        <div className="max-w-[1400px] mx-auto px-4 xl:px-6 flex justify-between items-center gap-4">
+          <a href="/" className="flex items-center gap-1 cursor-pointer shrink-0">
             <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
             <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain translate-y-1" />
           </a>
           
-          <nav className="hidden md:flex flex-1 justify-center gap-10 items-center font-medium text-sm text-slate-600">
+          <nav className="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-6 font-medium text-[13px] xl:text-sm text-slate-600 whitespace-nowrap">
             <a href="#servicos" className="hover:text-blue-600 transition-colors">Serviços</a>
             <a href="#metodo" className="hover:text-blue-600 transition-colors">Método</a>
             <a href="#sobre" className="hover:text-blue-600 transition-colors">Quem Somos</a>
@@ -193,16 +193,16 @@ const AtendconSPA = () => {
             <a href="#contato" className="hover:text-blue-600 transition-colors">Contato</a>
           </nav>
 
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-600 border border-blue-600 px-5 py-2 rounded-full hover:bg-blue-50 font-bold transition-all shadow-sm">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3 text-[13px] xl:text-sm shrink-0">
+            <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-600 border border-blue-600 px-4 xl:px-5 py-2 rounded-full hover:bg-blue-50 font-bold transition-all shadow-sm whitespace-nowrap">
               Área do Cliente
             </a>
-            <button onClick={openTriageModal} className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
+            <button onClick={openTriageModal} className="bg-blue-600 text-white px-4 xl:px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold whitespace-nowrap">
               Falar com Especialista
             </button>
           </div>
 
-          <button className="md:hidden text-slate-900" aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className="lg:hidden text-slate-900" aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -212,7 +212,7 @@ const AtendconSPA = () => {
           {isMobileMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl shadow-2xl rounded-b-3xl border-t border-slate-100 flex flex-col p-8 gap-5 font-medium z-50"
+              className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl shadow-2xl rounded-b-3xl border-t border-slate-100 flex flex-col p-8 gap-5 font-medium z-50"
             >
               <a href="#servicos" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Serviços</a>
               <a href="#metodo" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Método</a>
